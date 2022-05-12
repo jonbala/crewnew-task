@@ -35,23 +35,6 @@ background-color: var(--white);
   color:var(--lightblack);
 }
 
-.header__row button {
-  padding:13.5px 20px;
-  background-color: var(--blue);
-  color:white;
-  font-family: inherit;
-  border:none;
-  cursor: pointer;
-}
-
-.header__row button:hover {
-  transition: all .5s ease-in-out;
-  background-color:#131010;
-}
-.header__row span {
-  font-size:25px;
-  color:var(--lightblack);
-}
 
 @media (max-width:768px) {
   .header__row {

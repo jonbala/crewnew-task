@@ -3,8 +3,6 @@ import { useDispatch } from "react-redux";
 import {
   showAllProject,
   showProject,
-  showProgressProject,
-  showCompletedProject,
 } from "../../redux/actions/projectActions";
 import { VFC } from "react";
 type ProjectHeaderProps = {

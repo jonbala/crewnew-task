@@ -1,4 +1,4 @@
-export type Status = "Project" | "In Progress" | "Completed";
+export type Status = "Project";
 
 export interface IProject {
   id: number;
@@ -25,8 +25,6 @@ export enum ProjectActionTypes {
   DELETE_PROJECT = "DELETE_PROJECT",
   SHOW_ALL = "SHOW_ALL",
   SHOW_PROJECT = "SHOW_PROJECT",
-  SHOW_PROGRESS = "SHOW_PROGRESS",
-  SHOW_COMPLETED = "SHOW_COMPLETED",
 }
 
 export interface AddProject {
@@ -76,14 +74,6 @@ export interface ShowAllProject {
 }
 export interface ShowProject {
   type: ProjectActionTypes.SHOW_PROJECT;
-  payload: ProjectArray;
-}
-export interface ShowProgressProject {
-  type: ProjectActionTypes.SHOW_PROGRESS;
-  payload: ProjectArray;
-}
-export interface ShowCompletedProject {
-  type: ProjectActionTypes.SHOW_COMPLETED;
   payload: ProjectArray;
 }
 

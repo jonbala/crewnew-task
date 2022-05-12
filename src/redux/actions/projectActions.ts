@@ -36,10 +36,4 @@ export const addProject = (project:IProject)  => (dispatch:Dispatch , getState:(
         type: ProjectActionTypes.SHOW_PROJECT,
  })
 
- export const showProgressProject = () => ({
-        type: ProjectActionTypes.SHOW_PROGRESS,
- })
-
- export const showCompletedProject = () =>({
-        type: ProjectActionTypes.SHOW_COMPLETED,
- })
+ 
