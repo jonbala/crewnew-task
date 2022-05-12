@@ -1,11 +1,11 @@
-export type Status = "Todo" | "In Progress" | "Completed";
+export type Status = "Project" | "In Progress" | "Completed";
 
-export interface ITodo {
+export interface IProject {
   id: number;
   title: string;
   description: string;
   status: Status | string;
-  member?: string;
+  user?: string;
 }
 export type UserState = {
   usersList: IUser[];
@@ -13,29 +13,29 @@ export type UserState = {
   error?: string;
 };
 
-export type TodosArray = Array<ITodo>;
+export type ProjectArray = Array<IProject>;
 
-export type TodosState = {
-  todos: TodosArray;
-  filteredTodos: TodosArray;
+export type ProjectState = {
+  project: ProjectArray;
+  filteredProject: ProjectArray;
 };
 
-export enum TodosActionTypes {
-  ADD_TODO = "ADD_TODO",
-  DELETE_TODO = "DELETE_TODO",
+export enum ProjectActionTypes {
+  ADD_PROJECT = "ADD_PROJECT",
+  DELETE_PROJECT = "DELETE_PROJECT",
   SHOW_ALL = "SHOW_ALL",
-  SHOW_TODO = "SHOW_TODO",
+  SHOW_PROJECT = "SHOW_PROJECT",
   SHOW_PROGRESS = "SHOW_PROGRESS",
   SHOW_COMPLETED = "SHOW_COMPLETED",
 }
 
-export interface AddTodo {
-  type: TodosActionTypes.ADD_TODO;
-  payload: ITodo;
+export interface AddProject {
+  type: ProjectActionTypes.ADD_PROJECT;
+  payload: IProject;
 }
 
-export interface DeleteTodo {
-  type: TodosActionTypes.DELETE_TODO;
+export interface DeleteProject {
+  type: ProjectActionTypes.DELETE_PROJECT;
   payload: number;
 }
 
@@ -70,21 +70,21 @@ export interface FetchUsersError {
   payload: string;
 }
 
-export interface ShowAllTodos {
-  type: TodosActionTypes.SHOW_ALL;
-  payload: TodosArray;
+export interface ShowAllProject {
+  type: ProjectActionTypes.SHOW_ALL;
+  payload: ProjectArray;
 }
-export interface ShowTodos {
-  type: TodosActionTypes.SHOW_TODO;
-  payload: TodosArray;
+export interface ShowProject {
+  type: ProjectActionTypes.SHOW_PROJECT;
+  payload: ProjectArray;
 }
-export interface ShowProgressTodos {
-  type: TodosActionTypes.SHOW_PROGRESS;
-  payload: TodosArray;
+export interface ShowProgressProject {
+  type: ProjectActionTypes.SHOW_PROGRESS;
+  payload: ProjectArray;
 }
-export interface ShowCompletedTodos {
-  type: TodosActionTypes.SHOW_COMPLETED;
-  payload: TodosArray;
+export interface ShowCompletedProject {
+  type: ProjectActionTypes.SHOW_COMPLETED;
+  payload: ProjectArray;
 }
 
 export type DispatchUserTypes =

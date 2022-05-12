@@ -1,4 +1,4 @@
-import TodoList from "./components/TodoList";
+import ProjectList from "./components/ProjectList";
 import Header from "./components/Header";
 function App() {
   return (
@@ -6,7 +6,7 @@ function App() {
      
       <Header />
     
-      <TodoList />
+      <ProjectList />
     </main>
   );
 }

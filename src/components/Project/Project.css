@@ -1,4 +1,4 @@
-.todo {
+.project {
   width:320px;
   flex-basis:280px;
   height:200px;
@@ -12,14 +12,14 @@
   justify-content: space-between;
 }
 
-.todo h1 {
+.project h1 {
   font-size: 17px;
   margin-bottom:1px;
   word-break: break-all;
 
 }
 
-.todo p {
+.project p {
   text-align: left;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -31,7 +31,7 @@
   font-size:13px;
 }
 
-.todo__title {
+.project__title {
   width:100%;
   display:flex;
   align-items:center;
@@ -41,13 +41,13 @@
   align-self: center;
 }
 
-.todo__title h1 {
+.project__title h1 {
   font-size: 17px;
   margin:0;
   color:var(--lightblack)
 }
 
-.todo__title i {
+.project__title i {
   border:none;
   padding:5px 10px;
   display: flex;
@@ -60,7 +60,7 @@
 }
 
 
-.todo__footer {
+.project__footer {
   width:100%;
   display:flex;
   padding:3px 0;
@@ -69,7 +69,7 @@
   flex-direction: row;
 }
 
-.todo__footer__status  {
+.project__footer__status  {
  width:auto;
  display:flex;
  align-items: center;
@@ -80,7 +80,7 @@
 
 
 
-.todo__footer__status h4 {
+.project__footer__status h4 {
 font-size:13px;
 padding:0 2px;
 font-weight:500;
@@ -89,7 +89,7 @@ overflow: hidden;
 
 }
 
-.todo__footer__status i svg {
+.project__footer__status i svg {
   color: var(--blue);
   font-size: 14px;
   cursor: pointer;
@@ -97,7 +97,7 @@ overflow: hidden;
   
 }
 
-.todo__footer label{
+.project__footer label{
   font-size:12px;
   color:#2BCF8A;
   border-radius:5px;
@@ -110,29 +110,29 @@ overflow: hidden;
 }
 
 
-.todo__footer .label__todo {
+.project__footer .label__todo {
   background-color: #E7EEFE;
   color:#132FE5;
 }
 
-.todo__footer .label__todo:hover {
+.project__footer .label__todo:hover {
   background-color: #132FE5;
   color:#fff;
 }
 
-.todo__footer .label__inprogress {
+.project__footer .label__inprogress {
     background-color: #FFEED7;
   font-weight:bold;
   color:#FFCD00;
 }
 
-.todo__footer .label__inprogress:hover {
+.project__footer .label__inprogress:hover {
   background-color: #FFCD00;
   color:#fff;
 
 }
 
-.todo__footer .label__done {
+.project__footer .label__done {
   color:#2BCF8A;
   border-radius:5px;
   background-color: #DDF8ED;
@@ -140,13 +140,13 @@ overflow: hidden;
 
 
 
-.todo__footer .label__done:hover{
+.project__footer .label__done:hover{
   background-color: #2BCF8A;
   color:#fff;
 }
 
 @media(max-width:768px) {
-  .todo {
+  .project {
     justify-content:center;
     align-items: center;
     flex-basis:300px;
@@ -154,7 +154,7 @@ overflow: hidden;
 }
 
 @media (max-width:480px) {
-  .todo {
+  .project {
     flex-basis:calc(100%  - 20%)
   }
 }
