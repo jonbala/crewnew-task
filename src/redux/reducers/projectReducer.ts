@@ -3,6 +3,7 @@ import {
   AddProject,
   DeleteProject,
   ShowAllProject,
+  EditProject,
 } from "../../types";
 const initialProject: ProjectArray = [
   {
@@ -17,7 +18,8 @@ const initialProject: ProjectArray = [
 type Action =
   | AddProject
   | DeleteProject
-  | ShowAllProject;
+  | ShowAllProject
+  | EditProject;
 
 const projectFromStorage = localStorage.getItem("project")
   ? JSON.parse(localStorage.getItem("project") || "")
@@ -43,6 +45,13 @@ export function projectReducer(
         ...state,
         project: state.project.filter((project) => project.id !== action.payload),
         filteredProject: state.project.filter((project) => project.id !== action.payload),
+      };
+
+    case ProjectActionTypes.EDIT_PROJECT:
+      return {
+        ...state,
+        project: [...state.project, action.payload],
+        filteredProject: [...state.project, action.payload],
       };
 
     case ProjectActionTypes.SHOW_ALL:

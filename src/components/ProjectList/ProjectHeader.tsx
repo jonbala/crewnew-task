@@ -10,7 +10,7 @@ type ProjectHeaderProps = {
 };
 const ProjectHeader: VFC<ProjectHeaderProps> = ({ onClick }) => {
   const dispatch = useDispatch();
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const electChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue:string = e.target.value;
     if (selectedValue === "all") {
       dispatch(showAllProject());

@@ -23,6 +23,7 @@ export type ProjectState = {
 export enum ProjectActionTypes {
   ADD_PROJECT = "ADD_PROJECT",
   DELETE_PROJECT = "DELETE_PROJECT",
+  EDIT_PROJECT = "EDIT_PROJECT",
   SHOW_ALL = "SHOW_ALL",
   SHOW_PROJECT = "SHOW_PROJECT",
 }
@@ -35,6 +36,11 @@ export interface AddProject {
 export interface DeleteProject {
   type: ProjectActionTypes.DELETE_PROJECT;
   payload: number;
+}
+
+export interface EditProject {
+  type: ProjectActionTypes.EDIT_PROJECT;
+  payload: IProject;
 }
 
 export interface IUser {

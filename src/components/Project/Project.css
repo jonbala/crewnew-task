@@ -36,9 +36,14 @@
   display:flex;
   align-items:center;
   flex-direction:row;
-  justify-content: space-between;
   padding:10px 0;
   align-self: center;
+}
+
+.project_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .project__title h1 {
@@ -49,7 +54,7 @@
 
 .project__title i {
   border:none;
-  padding:5px 10px;
+  padding:5px 5px;
   display: flex;
   align-items: center;
   justify-content: center;

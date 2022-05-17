@@ -1,60 +1,46 @@
 import { fetchUsers } from "../../../redux/actions/userActions";
 import { useEffect, VFC, SetStateAction, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addProject } from "../../../redux/actions/projectActions";
+import { editProject } from "../../../redux/actions/projectActions";
 import { IProject, IUser } from "../../../types";
-import Modal from "../Modal";
 import "../Modal.css";
-import { IRootState } from "./../../../redux";
-type IFormModalProps = {
-  setIsOpen: React.Dispatch<SetStateAction<boolean>>;
-  heading?: string;
-};
-const AddFormModal: VFC<IFormModalProps> = ({ setIsOpen, heading, }: IFormModalProps) => {
-  const users = useSelector((state: IRootState) => state.users);
-  const { loading, error, usersList } = users;
-  const dispatch = useDispatch();
-  const [project, setProject] = useState<IProject>({
-    id: Date.now(),
-    title: "",
-    description: "",
-    status: "",
-    user: "",
-  });
+import Modal from "../Modal";
+import { IRootState } from "../../../redux";
+import { useDispatch, useSelector } from "react-redux";
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+type IFormModalProps = {
+    setIsOpen: React.Dispatch<SetStateAction<boolean>>;
+    heading?: string;
+};
+
+const EditFormModal: VFC<IFormModalProps> = ({ setIsOpen, heading }: IFormModalProps) => {
+   const users = useSelector((state: IRootState) => state.users);
+   const { loading, error, usersList } = users;
+   const dispatch = useDispatch();
+   const [editproject, setEditProject] = useState<IProject>({
+       id: Date.now(),
+       title: "",
+       description: "",
+       status: "",
+       user: "",
+   });
+   
+   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (project.title === '') {
-      console.error('Please enter a title');
-      return;
-    }
-    if (project.title || project.description || project.status || project.user) {
-      if (heading === 'add') {
-        dispatch(addProject(project));
-      setProject({
+    if (editproject.title || editproject.description || editproject.status || editproject.user) {
+      dispatch(editProject(editproject));
+      editProject({
         id: 0,
         title: "",
         description: "",
         status: "",
       });
       setIsOpen((open) => !open);
-      }
-       if (heading === 'update') {
-         dispatch(addProject(project));
-         setProject({
-           id: 0,
-           title: "",
-           description: "",
-           status: "",
-         });
-         setIsOpen((open) => !open);
-       }
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | any>) => {
     const { value, name } = e.target;
-    setProject({ ...project, [name]: value });
+    setEditProject({ ...editproject, [name]: value });
   };
 
   useEffect(() => {
@@ -72,7 +58,7 @@ const AddFormModal: VFC<IFormModalProps> = ({ setIsOpen, heading, }: IFormModalP
             name="title"
             onChange={handleChange}
             type="text"
-            placeholder="Enter Project Title"
+            placeholder="Edit Project Title"
           />
 
           <label htmlFor="description">Description</label>
@@ -81,7 +67,7 @@ const AddFormModal: VFC<IFormModalProps> = ({ setIsOpen, heading, }: IFormModalP
             name="description"
             onChange={handleChange}
             type="text"
-            placeholder="Enter Project Description"
+            placeholder="Edit Project Description"
           />
           <label htmlFor="status">User</label>
 
@@ -89,7 +75,7 @@ const AddFormModal: VFC<IFormModalProps> = ({ setIsOpen, heading, }: IFormModalP
             required
             name="user"
             onChange={handleChange}
-            value={project.user}
+            value={editproject.user}
           >
             <option value="" disabled selected>
               Select a user
@@ -109,7 +95,7 @@ const AddFormModal: VFC<IFormModalProps> = ({ setIsOpen, heading, }: IFormModalP
           </select>
 
           <div className="modal___actions">
-            <button className="modal__submitBtn">{heading === 'update' ? 'Update' : 'Add'}</button>
+            <button className="modal__submitBtn">{heading === 'add' ? 'Add' : 'Update'}</button>
             <button
               className="modal__cancelBtn"
               onClick={() => setIsOpen(false)}
@@ -123,4 +109,5 @@ const AddFormModal: VFC<IFormModalProps> = ({ setIsOpen, heading, }: IFormModalP
   );
 };
 
-export default AddFormModal;
+
+export default EditFormModal;
